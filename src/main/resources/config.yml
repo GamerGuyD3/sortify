@@ -1,0 +1,47 @@
+file-version: 3
+
+# Dispensers Section
+dispensers:
+  # Enables dispensers to be affected
+  # Set to false if you wish for dispensers to be unaffected
+  enabled: true
+  # Toggles whether the 'dispense-items' and list is a blacklist or a whitelist
+  # true - 'dispense-items' acts as a whitelist
+  # false - 'dispense-items' acts as a blacklist
+  whitelist-mode: false
+  # Any item in this list will not be dispensed
+  dispense-items:
+  - TNT
+  # This section controls named items
+  name:
+    # Enables checking for item names
+    # Set to false if you wish for named items to be unaffected
+    enabled: false
+    # Toggles whether the 'dispense-items' list is a blacklist or a whitelist
+    whitelist-mode: false
+    # ONLY IF the item being dispensed has a custom name, it will be compared to this list first
+    dispense-items:
+    - Don't dispense this
+
+# Dispensers Section
+droppers:
+  # Enables droppers to be affected
+  # Set to false if you wish for droppers to be unaffected
+  enabled: true
+  # Toggles whether the 'dispense-items' and list is a blacklist or a whitelist
+  # true - 'dispense-items' acts as a whitelist
+  # false - 'dispense-items' acts as a blacklist
+  whitelist-mode: false
+  # Any item in this list will not be dropped
+  dispense-items:
+  - TNT
+  # This section controls named items
+  name:
+    # Enables checking for item names
+    # Set to false if you wish for named items to be unaffected
+    enabled: false
+    # Toggles whether the 'dispense-items' list is a blacklist or a whitelist
+    whitelist-mode: false
+    # ONLY IF the item being dispensed has a custom name, it will be compared to this list first
+    dispense-items:
+    - Don't dispense this

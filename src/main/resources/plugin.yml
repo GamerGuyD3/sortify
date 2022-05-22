@@ -1,0 +1,21 @@
+name: Dispensables
+version: '${project.version}'
+main: me.trueprotocol.dispensables.Dispensables
+api-version: 1.18
+authors: [ TrueProtocol ]
+description: Control what comes out of your dispensers!
+commands:
+  dispensables:
+    description: Main command for Dispensables Plugin!
+    usage: /<command>
+    permission: dispensables.admin
+  dispenser:
+    description: Command to control dispensers.
+    usage: /<command>
+    aliases: [disp]
+    permission: dispensables.dispensers
+  dropper:
+    description: Command to control droppers.
+    usage: /<command>
+    aliases: [drop]
+    permission: dispensables.droppers
