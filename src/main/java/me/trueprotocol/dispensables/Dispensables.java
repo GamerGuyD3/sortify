@@ -29,14 +29,14 @@ public final class Dispensables extends JavaPlugin {
             ex.printStackTrace();
         }
         this.getServer().getConsoleSender().sendMessage("Dispensables is now enabled");
-        this.getServer().getPluginManager().registerEvents(new CancelDispense(), this);
-        this.getServer().getPluginManager().registerEvents(new CancelDrop(), this);
-        this.getServer().getPluginCommand("dispensables").setExecutor(new DispensablesCommand());
-        this.getServer().getPluginCommand("dispensables").setTabCompleter(new DispensablesCommand());
-        this.getServer().getPluginCommand("dispenser").setExecutor(new DispenserCommand());
-        this.getServer().getPluginCommand("dispenser").setTabCompleter(new DispenserCommand());
-        this.getServer().getPluginCommand("dropper").setExecutor(new DropperCommand());
-        this.getServer().getPluginCommand("dropper").setTabCompleter(new DropperCommand());
+        this.getServer().getPluginManager().registerEvents(new CancelDispense(this), this);
+        this.getServer().getPluginManager().registerEvents(new CancelDrop(this), this);
+        this.getServer().getPluginCommand("dispensables").setExecutor(new DispensablesCommand(this));
+        this.getServer().getPluginCommand("dispensables").setTabCompleter(new DispensablesCommand(this));
+        this.getServer().getPluginCommand("dispenser").setExecutor(new DispenserCommand(this));
+        this.getServer().getPluginCommand("dispenser").setTabCompleter(new DispenserCommand(this));
+        this.getServer().getPluginCommand("dropper").setExecutor(new DropperCommand(this));
+        this.getServer().getPluginCommand("dropper").setTabCompleter(new DropperCommand(this));
     }
 
     @Override

@@ -9,7 +9,11 @@ import org.bukkit.event.block.BlockDispenseEvent;
 
 public class CancelDrop implements Listener {
 
-    Dispensables plugin = Dispensables.getPlugin(Dispensables.class);
+    Dispensables plugin;
+
+    public CancelDrop(Dispensables plugin) {
+        this.plugin = plugin;
+    }
 
     @EventHandler
     public void onDispense(BlockDispenseEvent e) {
