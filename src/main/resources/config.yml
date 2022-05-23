@@ -1,4 +1,4 @@
-file-version: 3
+file-version: 4
 
 # Dispensers Section
 dispensers:
@@ -23,7 +23,7 @@ dispensers:
     dispense-items:
     - Don't dispense this
 
-# Dispensers Section
+# Droppers Section
 droppers:
   # Enables droppers to be affected
   # Set to false if you wish for droppers to be unaffected
@@ -45,3 +45,26 @@ droppers:
     # ONLY IF the item being dispensed has a custom name, it will be compared to this list first
     dispense-items:
     - Don't dispense this
+
+# Hoppers Section
+hoppers:
+  # Enables hoppers to be affected
+  # Set to false if you wish for hoppers to be unaffected
+  enabled: true
+  # Toggles whether the 'transfer-items' and list is a blacklist or a whitelist
+  # true - 'transfer-items' acts as a whitelist
+  # false - 'transfer-items' acts as a blacklist
+  whitelist-mode: false
+  # Any item in this list will not be dropped
+  transfer-items:
+    - TNT
+  # This section controls named items
+  name:
+    # Enables checking for item names
+    # Set to false if you wish for named items to be unaffected
+    enabled: false
+    # Toggles whether the 'transfer-items' list is a blacklist or a whitelist
+    whitelist-mode: false
+    # ONLY IF the item being transferred has a custom name, it will be compared to this list first
+    transfer-items:
+      - Don't transfer this

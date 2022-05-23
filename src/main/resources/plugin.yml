@@ -19,3 +19,8 @@ commands:
     usage: /<command>
     aliases: [drop]
     permission: dispensables.droppers
+  hopper:
+    description: Command to control droppers.
+    usage: /<command>
+    aliases: [hop]
+    permission: dispensables.hoppers

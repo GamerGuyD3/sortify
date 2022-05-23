@@ -9,6 +9,7 @@ import dev.dejvokep.boostedyaml.settings.updater.UpdaterSettings;
 import me.trueprotocol.dispensables.commands.*;
 import me.trueprotocol.dispensables.listeners.CancelDispense;
 import me.trueprotocol.dispensables.listeners.CancelDrop;
+import me.trueprotocol.dispensables.listeners.CancelHop;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -31,12 +32,15 @@ public final class Dispensables extends JavaPlugin {
         this.getServer().getConsoleSender().sendMessage("Dispensables is now enabled");
         this.getServer().getPluginManager().registerEvents(new CancelDispense(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelDrop(this), this);
+        this.getServer().getPluginManager().registerEvents(new CancelHop(this), this);
         this.getServer().getPluginCommand("dispensables").setExecutor(new DispensablesCommand(this));
         this.getServer().getPluginCommand("dispensables").setTabCompleter(new DispensablesCommand(this));
         this.getServer().getPluginCommand("dispenser").setExecutor(new DispenserCommand(this));
         this.getServer().getPluginCommand("dispenser").setTabCompleter(new DispenserCommand(this));
         this.getServer().getPluginCommand("dropper").setExecutor(new DropperCommand(this));
         this.getServer().getPluginCommand("dropper").setTabCompleter(new DropperCommand(this));
+        this.getServer().getPluginCommand("hopper").setExecutor(new HopperCommand(this));
+        this.getServer().getPluginCommand("hopper").setTabCompleter(new HopperCommand(this));
     }
 
     @Override

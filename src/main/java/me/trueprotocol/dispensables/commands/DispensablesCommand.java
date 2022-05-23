@@ -25,7 +25,8 @@ public class DispensablesCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(ChatColor.YELLOW + "/dispensables help");
             sender.sendMessage(ChatColor.YELLOW + "/dispensables reload");
             sender.sendMessage(ChatColor.YELLOW + "/dispenser");
-            sender.sendMessage(ChatColor.YELLOW + "/dispenser");
+            sender.sendMessage(ChatColor.YELLOW + "/dropper");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper");
         }
         else
         {
