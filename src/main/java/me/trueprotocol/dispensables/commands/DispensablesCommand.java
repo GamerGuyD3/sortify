@@ -12,7 +12,11 @@ import java.util.List;
 
 public class DispensablesCommand implements CommandExecutor, TabCompleter {
 
-    Dispensables plugin = Dispensables.getPlugin(Dispensables.class);
+    Dispensables plugin;
+
+    public DispensablesCommand(Dispensables plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
