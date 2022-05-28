@@ -7,9 +7,11 @@ import dev.dejvokep.boostedyaml.settings.general.GeneralSettings;
 import dev.dejvokep.boostedyaml.settings.loader.LoaderSettings;
 import dev.dejvokep.boostedyaml.settings.updater.UpdaterSettings;
 import me.trueprotocol.dispensables.commands.*;
+import me.trueprotocol.dispensables.gui.ClickInventory;
 import me.trueprotocol.dispensables.listeners.CancelDispense;
 import me.trueprotocol.dispensables.listeners.CancelDrop;
 import me.trueprotocol.dispensables.listeners.CancelHop;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -22,6 +24,9 @@ public final class Dispensables extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        // bStats
+        int pluginId = 15323; // <-- Replace with the id of your plugin!
+        Metrics metrics = new Metrics(this, pluginId);
         // Create and update config.yml
         try {
             config = YamlDocument.create(new File(getDataFolder(), "config.yml"), getResource("config.yml"),
@@ -29,10 +34,12 @@ public final class Dispensables extends JavaPlugin {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        // Main
         this.getServer().getConsoleSender().sendMessage("Dispensables is now enabled");
         this.getServer().getPluginManager().registerEvents(new CancelDispense(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelDrop(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelHop(this), this);
+        this.getServer().getPluginManager().registerEvents(new ClickInventory(this), this);
         this.getServer().getPluginCommand("dispensables").setExecutor(new DispensablesCommand(this));
         this.getServer().getPluginCommand("dispensables").setTabCompleter(new DispensablesCommand(this));
         this.getServer().getPluginCommand("dispenser").setExecutor(new DispenserCommand(this));
