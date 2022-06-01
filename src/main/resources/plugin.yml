@@ -8,19 +8,20 @@ commands:
   dispensables:
     description: Main command for Dispensables Plugin!
     usage: /<command>
+    aliases: [ disp ]
     permission: dispensables.admin
   dispenser:
     description: Command to control dispensers.
     usage: /<command>
-    aliases: [disp]
+    aliases: [ dispense ]
     permission: dispensables.dispensers
   dropper:
     description: Command to control droppers.
     usage: /<command>
-    aliases: [drop]
+    aliases: [ drop ]
     permission: dispensables.droppers
   hopper:
     description: Command to control droppers.
     usage: /<command>
-    aliases: [hop]
+    aliases: [ hop ]
     permission: dispensables.hoppers
