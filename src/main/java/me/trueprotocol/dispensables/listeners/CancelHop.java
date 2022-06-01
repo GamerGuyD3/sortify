@@ -11,11 +11,9 @@ import org.bukkit.event.inventory.InventoryType;
 public class CancelHop implements Listener {
 
     Dispensables plugin;
-
     public CancelHop(Dispensables plugin) {
         this.plugin = plugin;
     }
-
 
     @EventHandler
     public void onInventoryMoveItem(InventoryMoveItemEvent e) {

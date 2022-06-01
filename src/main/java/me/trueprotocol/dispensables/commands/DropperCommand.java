@@ -15,10 +15,7 @@ import java.util.List;
 public class DropperCommand implements CommandExecutor, TabCompleter {
 
     Dispensables plugin;
-
-    public DropperCommand(Dispensables plugin) {
-        this.plugin = plugin;
-    }
+    public DropperCommand(Dispensables plugin) { this.plugin = plugin; }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

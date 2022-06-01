@@ -11,10 +11,7 @@ import org.bukkit.event.block.BlockDispenseEvent;
 public class CancelDispense implements Listener {
 
     Dispensables plugin;
-
-    public CancelDispense(Dispensables plugin) {
-        this.plugin = plugin;
-    }
+    public CancelDispense(Dispensables plugin) { this.plugin = plugin; }
 
     @EventHandler
     public void onDispense(BlockDispenseEvent e) {

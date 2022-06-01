@@ -15,7 +15,6 @@ import java.util.List;
 public class HopperCommand implements CommandExecutor, TabCompleter {
 
     Dispensables plugin;
-
     public HopperCommand(Dispensables plugin) {
         this.plugin = plugin;
     }

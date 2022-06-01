@@ -12,11 +12,7 @@ import org.bukkit.event.inventory.InventoryType;
 public class CancelDrop implements Listener {
 
     Dispensables plugin;
-
-    public CancelDrop(Dispensables plugin) {
-        this.plugin = plugin;
-    }
-
+    public CancelDrop(Dispensables plugin) { this.plugin = plugin; }
 
     @EventHandler
     public void onDispense(BlockDispenseEvent e) {
