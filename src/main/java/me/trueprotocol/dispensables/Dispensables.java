@@ -12,9 +12,8 @@ import me.trueprotocol.dispensables.gui.CloseInventory;
 import me.trueprotocol.dispensables.listeners.CancelDispense;
 import me.trueprotocol.dispensables.listeners.CancelDrop;
 import me.trueprotocol.dispensables.listeners.CancelHop;
+import me.trueprotocol.dispensables.listeners.PlayerJoin;
 import org.bstats.bukkit.Metrics;
-import org.bukkit.Bukkit;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -26,6 +25,14 @@ public final class Dispensables extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        // Update Checker
+        new UpdateChecker(this, 61856).getVersion(version -> {
+            if (this.getDescription().getVersion().equals(version)) {
+                getLogger().info("No new updates available.");
+            } else {
+                getLogger().info("v" + version + " is now available! Download now: https://www.spigotmc.org/resources/dispensables.61856/");
+            }
+        });
         // bStats
         int pluginId = 15323; // <-- Id of your plugin!
         Metrics metrics = new Metrics(this, pluginId);
@@ -37,7 +44,8 @@ public final class Dispensables extends JavaPlugin {
             ex.printStackTrace();
         }
         // Main
-        this.getServer().getConsoleSender().sendMessage("Dispensables is now enabled");
+        this.getServer().getConsoleSender().sendMessage("[Dispensables] Enabled Dispensables v" + this.getDescription().getVersion());
+        this.getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelDispense(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelDrop(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelHop(this), this);
@@ -57,6 +65,6 @@ public final class Dispensables extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        this.getServer().getConsoleSender().sendMessage("Dispensables is now disabled");
+        this.getServer().getConsoleSender().sendMessage("[Dispensables] Disabled Dispensables v" + this.getDescription().getVersion());
     }
 }
