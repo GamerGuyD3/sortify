@@ -24,13 +24,13 @@ public class DispensablesCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
-            sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.GRAY + "v" + plugin.getDescription().getVersion() + " by TrueProtocol\n" + ChatColor.YELLOW +
-                    "/dispensables help\n" +
-                    "/dispensables reload\n" +
-                    "/dispensables gui\n" +
-                    "/dispenser\n" +
-                    "/dropper\n" +
-                    "/hopper");
+            sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.GRAY + "v" + plugin.getDescription().getVersion() + " by TrueProtocol");
+            sender.sendMessage(ChatColor.YELLOW + "/dispensables help");
+            sender.sendMessage(ChatColor.YELLOW + "/dispensables reload");
+            sender.sendMessage(ChatColor.YELLOW + "/dispensables gui");
+            sender.sendMessage(ChatColor.YELLOW + "/dispenser");
+            sender.sendMessage(ChatColor.YELLOW + "/dropper");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper");
         }
         else
         {

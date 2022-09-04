@@ -21,7 +21,7 @@ public class CancelDispense implements Listener {
             if (e.getItem().getItemMeta().hasDisplayName()) {
                 boolean namewl = plugin.getConfig().getBoolean("dispensers.name.whitelist-mode");
                 for (String name : plugin.getConfig().getStringList("dispensers.name.dispense-items")) {
-                    if (!namewl && e.getItem().getItemMeta().getDisplayName().equals(name)) {Bukkit.broadcastMessage("namewl off. canceled"); e.setCancelled(true); break; }
+                    if (!namewl && e.getItem().getItemMeta().getDisplayName().equals(name)) { e.setCancelled(true); break; }
                     else if (namewl)
                     {
                         if (e.getItem().getItemMeta().getDisplayName().equals(name)) { e.setCancelled(false); break; }

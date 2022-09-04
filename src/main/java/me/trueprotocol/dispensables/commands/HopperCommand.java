@@ -22,15 +22,15 @@ public class HopperCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
-            sender.sendMessage(ChatColor.GRAY + "----------" + ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Hopper Commands" + ChatColor.DARK_GRAY + "]" + ChatColor.GRAY + "----------\n" + ChatColor.YELLOW +
-                    "/hopper help\n" +
-                    "/hopper list\n" +
-                    "/hopper <on/off>\n" +
-                    "/hopper whitelist <on/off>\n" +
-                    "/hopper <add/remove> <MATERIAL>\n" +
-                    "/hopper name <on/off>\n" +
-                    "/hopper name whitelist <on/off>\n" +
-                    "/hopper name <add/remove> <string>");
+            sender.sendMessage(ChatColor.GRAY + "----------" + ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Hopper Commands" + ChatColor.DARK_GRAY + "]" + ChatColor.GRAY + "----------");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper help");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper list");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper <on/off>");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper whitelist <on/off>");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper <add/remove> <MATERIAL>");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper name <on/off>");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper name whitelist <on/off>");
+            sender.sendMessage(ChatColor.YELLOW + "/hopper name <add/remove> <string>");
         }
         else
         {
@@ -62,12 +62,12 @@ public class HopperCommand implements CommandExecutor, TabCompleter {
                 case "whitelist":
                     boolean dispensewhitelist = plugin.getConfig().getBoolean("hoppers.whitelist-mode");
                     if (args.length == 1) sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Hopper whitelist mode is " + ChatColor.YELLOW + dispensewhitelist + ChatColor.WHITE + ".");
-                        //dispenser whitelist on
+                        //dispenser whitelist enable
                     else if (args[1].equalsIgnoreCase("on")) {
                         plugin.getConfig().set("hoppers.whitelist-mode", true); plugin.saveConfig();
                         sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Hopper whitelist mode " + ChatColor.GREEN + "on" + ChatColor.WHITE + ".");
                     }
-                    //dispenser whitelist off
+                    //dispenser whitelist disable
                     else if (args[1].equalsIgnoreCase("off")) {
                         plugin.getConfig().set("hoppers.whitelist-mode", false); plugin.saveConfig();
                         sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Hopper whitelist mode " + ChatColor.RED + "off" + ChatColor.WHITE + ".");
@@ -124,19 +124,19 @@ public class HopperCommand implements CommandExecutor, TabCompleter {
                             case "whitelist":
                                 boolean dispensenameswhitelist = plugin.getConfig().getBoolean("hoppers.name.whitelist-mode");
                                 if (args.length == 2) sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Hopper custom names whitelist mode is " + ChatColor.YELLOW + dispensenameswhitelist + ChatColor.WHITE + ".");
-                                    //dispenser name whitelist on
+                                    //dispenser name whitelist enable
                                 else if (args[2].equalsIgnoreCase("on")) {
                                     plugin.getConfig().set("hoppers.name.whitelist-mode", true); plugin.saveConfig();
                                     sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Hopper custom names whitelist mode " + ChatColor.GREEN + "enabled" + ChatColor.WHITE + ".");
                                 }
-                                //dispenser name whitelist off
+                                //dispenser name whitelist disable
                                 else if (args[2].equalsIgnoreCase("off")) {
                                     plugin.getConfig().set("hoppers.name.whitelist-mode", false); plugin.saveConfig();
                                     sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Hopper custom names whitelist mode " + ChatColor.RED + "disabled" + ChatColor.WHITE + ".");
                                 } break;
                             //dispenser name add
                             case "add":
-                                if (args.length == 2) sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "Missing Argument <ItemName>");
+                                if (args.length == 1) sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "Missing Argument <ItemName>");
                                 else
                                 {
                                     String name = StringUtils.join(args, " ", 2, args.length);
@@ -145,7 +145,7 @@ public class HopperCommand implements CommandExecutor, TabCompleter {
                                 } break;
                             //dispenser name remove
                             case "remove":
-                                if (args.length == 2) sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "Missing Argument <ItemName>");
+                                if (args.length == 1) sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "Missing Argument <ItemName>");
                                 else
                                 {
                                     String name = StringUtils.join(args, " ", 2, args.length);
