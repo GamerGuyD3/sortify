@@ -10,7 +10,6 @@ import me.trueprotocol.dispensables.commands.*;
 import me.trueprotocol.dispensables.gui.ClickInventory;
 import me.trueprotocol.dispensables.gui.CloseInventory;
 import me.trueprotocol.dispensables.listeners.CancelDispense;
-import me.trueprotocol.dispensables.listeners.CancelDrop;
 import me.trueprotocol.dispensables.listeners.CancelHop;
 import me.trueprotocol.dispensables.listeners.PlayerJoin;
 import org.bstats.bukkit.Metrics;
@@ -47,7 +46,6 @@ public final class Dispensables extends JavaPlugin {
         this.getServer().getConsoleSender().sendMessage("[Dispensables] Enabled Dispensables v" + this.getDescription().getVersion());
         this.getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelDispense(this), this);
-        this.getServer().getPluginManager().registerEvents(new CancelDrop(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelHop(this), this);
         this.getServer().getPluginManager().registerEvents(new ClickInventory(this), this);
         this.getServer().getPluginManager().registerEvents(new CloseInventory(this), this);
