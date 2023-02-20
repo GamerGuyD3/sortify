@@ -5,8 +5,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class RemoveFromDispenser extends BukkitRunnable {
-    private Dispenser dispenserBlock;
-    private ItemStack itemToRemove;
+    private final Dispenser dispenserBlock;
+    private final ItemStack itemToRemove;
 
     public RemoveFromDispenser(Dispenser dispenserBlock, ItemStack itemToRemove) {
         this.dispenserBlock = dispenserBlock;

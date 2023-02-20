@@ -95,65 +95,11 @@ public class DropperCommand implements CommandExecutor, TabCompleter {
                     {
                         //Material doesn't match
                         sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + args[1].toUpperCase() + ChatColor.WHITE + " is not a material.");
-                    } break;
-                //dispenser name
-                case "name":
-                    List<String> names = plugin.getConfig().getStringList("droppers.name.dispense-items");
-                    if (args.length == 1) {
-                        sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Drop Custom Names" + ChatColor.DARK_GRAY + "]");
-                        for (int i = 0; i < names.size(); i++) sender.sendMessage(ChatColor.YELLOW + "- " + names.get(i));
                     }
-                    else
-                    {
-                        String arg1 = args[1].toLowerCase();
-                        switch (arg1)
-                        {
-                            //dispenser name enable
-                            case "on":
-                                plugin.getConfig().set("droppers.name.enabled", true); plugin.saveConfig();
-                                sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Custom Named Items are now " + ChatColor.GREEN + "enabled " + ChatColor.WHITE + "for droppers.");
-                                break;
-                            //dispenser name disable
-                            case "off":
-                                plugin.getConfig().set("droppers.name.enabled", false); plugin.saveConfig();
-                                sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Custom Named Items are now " + ChatColor.RED + "disabled " + ChatColor.WHITE + "for droppers.");
-                                break;
-                            //dispenser name whitelist
-                            case "whitelist":
-                                boolean dispensenameswhitelist = plugin.getConfig().getBoolean("droppers.name.whitelist-mode");
-                                if (args.length == 2) sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Dropper custom names whitelist mode is " + ChatColor.YELLOW + dispensenameswhitelist + ChatColor.WHITE + ".");
-                                    //dispenser name whitelist enable
-                                else if (args[2].equalsIgnoreCase("on")) {
-                                    plugin.getConfig().set("droppers.name.whitelist-mode", true); plugin.saveConfig();
-                                    sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Dropper custom names whitelist mode " + ChatColor.GREEN + "enabled" + ChatColor.WHITE + ".");
-                                }
-                                //dispenser name whitelist disable
-                                else if (args[2].equalsIgnoreCase("off")) {
-                                    plugin.getConfig().set("droppers.name.whitelist-mode", false); plugin.saveConfig();
-                                    sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Dropper custom names whitelist mode " + ChatColor.RED + "disabled" + ChatColor.WHITE + ".");
-                                } break;
-                            //dispenser name add
-                            case "add":
-                                if (args.length == 1) sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "Missing Argument <ItemName>");
-                                else
-                                {
-                                    String name = StringUtils.join(args, " ", 2, args.length);
-                                    names.add(name); plugin.getConfig().set("droppers.name.dispense-items", names); plugin.saveConfig();
-                                    sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.GREEN + name + ChatColor.WHITE + " was added to droppers custom names.");
-                                } break;
-                            //dispenser name remove
-                            case "remove":
-                                if (args.length == 1) sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "Missing Argument <ItemName>");
-                                else
-                                {
-                                    String name = StringUtils.join(args, " ", 2, args.length);
-                                    names.remove(name); plugin.getConfig().set("droppers.name.dispense-items", names); plugin.saveConfig();
-                                    sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.GREEN + name + ChatColor.WHITE + " was removed from droppers custom names.");
-                                } break;
-                            default: sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "Unknown argument! Do " + ChatColor.YELLOW + "/drop " + ChatColor.RED + "for a list of commands"); break;
-                        }
-                    } break;
-                default: sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "Unknown argument! Do " + ChatColor.YELLOW + "/drop " + ChatColor.RED + "for a list of commands"); break;
+                    break;
+                default:
+                    sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.BLUE + "Dispensables" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "Unknown argument! Do " + ChatColor.YELLOW + "/drop " + ChatColor.RED + "for a list of commands");
+                    break;
             }
         }return true;
     }

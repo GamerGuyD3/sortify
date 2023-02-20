@@ -14,11 +14,11 @@ dispensers:
   # Amount to dispense if not defined in 'items' OR if 'whitelist-mode' is false
   default-amount: 1
   # Items affected
-  # NOTE: You can remove any value in each entry EXCEPT for 'material'. If the attribute is not listed, the plugin will not check for it.
+  # NOTE: You can remove any value in each entry. If the attribute is not listed, the plugin will not check for it.
   # Valid Attributes: material, display-name, lore, enchantments, amount
   items:
     '1': # You can name this whatever you want
-      material: WOODEN_SWORD # This is required
+      material: WOODEN_SWORD
       display-name: Wooden Sword
       lore:
         - Line 1
@@ -42,11 +42,11 @@ droppers:
   # Amount to drop if not defined in 'items' OR if 'whitelist-mode' is false
   default-amount: 1
   # Items affected
-  # NOTE: You can remove any value in each entry EXCEPT for 'material'. If the attribute is not listed, the plugin will not check for it.
+  # NOTE: You can remove any value in each entry. If the attribute is not listed, the plugin will not check for it.
   # Valid Attributes: material, display-name, lore, enchantments, amount
   items:
     '1': # You can name this whatever you want
-      material: WOODEN_SWORD # This is required
+      material: WOODEN_SWORD
       display-name: Wooden Sword
       lore:
         - A basic wooden sword.
@@ -69,11 +69,11 @@ hoppers:
   # Amount to hop if not defined in 'items' OR if 'whitelist-mode' is false
   default-amount: 10
   # Items affected
-  # NOTE: You can remove any value in each entry EXCEPT for 'material'. If the attribute is not listed, the plugin will not check for it.
+  # NOTE: You can remove any value in each entry. If the attribute is not listed, the plugin will not check for it.
   # Valid Attributes: material, display-name, lore, enchantments, amount
   items:
     '1': # You can name this whatever you want
-      material: WOODEN_SWORD # This is required
+      material: WOODEN_SWORD
       display-name: Wooden Sword
       lore:
         - A basic wooden sword.

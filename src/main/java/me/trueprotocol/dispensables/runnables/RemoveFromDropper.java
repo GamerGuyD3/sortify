@@ -5,8 +5,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class RemoveFromDropper extends BukkitRunnable {
-    private Dropper dropperBlock;
-    private ItemStack itemToRemove;
+    private final Dropper dropperBlock;
+    private final ItemStack itemToRemove;
 
     public RemoveFromDropper(Dropper dropperBlock, ItemStack itemToRemove) {
         this.dropperBlock = dropperBlock;
