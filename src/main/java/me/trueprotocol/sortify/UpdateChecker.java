@@ -1,4 +1,4 @@
-package me.trueprotocol.dispensables;
+package me.trueprotocol.sortify;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 

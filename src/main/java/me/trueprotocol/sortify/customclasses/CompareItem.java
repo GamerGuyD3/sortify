@@ -1,6 +1,6 @@
-package me.trueprotocol.dispensables.runnables;
+package me.trueprotocol.sortify.customclasses;
 
-import me.trueprotocol.dispensables.Dispensables;
+import me.trueprotocol.sortify.Sortify;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.ConfigurationSection;
@@ -11,6 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.*;
 
 public class CompareItem {
+
 
     public static class ItemFilter {
 
@@ -30,7 +31,7 @@ public class CompareItem {
             return itemFiltered;
         }
 
-        public static ItemFilter compareItem(Dispensables plugin, ItemStack item, String blockTypeString) {
+        public static ItemFilter compareItem(Sortify plugin, ItemStack item, String blockTypeString) {
             // Get the config values for the specific item type
             boolean whitelist = plugin.getConfig().getBoolean(blockTypeString + ".whitelist-mode");
 
@@ -106,9 +107,8 @@ public class CompareItem {
                     if (matchCheck) {
                         cancelEvent = true;
                         break;
-                    }
-                    // Blacklist and item don't match
-                    else {
+                        // Blacklist and item don't match
+                    } else {
                         cancelEvent = false;
                         // Check if comparing to last key
                         i++;

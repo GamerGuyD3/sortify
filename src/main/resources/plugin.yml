@@ -1,27 +1,27 @@
-name: Dispensables
+name: Sortify
 version: '${project.version}'
-main: me.trueprotocol.dispensables.Dispensables
+main: me.trueprotocol.sortify.Sortify
 api-version: 1.19
 authors: [ TrueProtocol ]
 description: Control what comes out of your dispensers!
 commands:
-  dispensables:
-    description: Main command for Dispensables Plugin!
+  sortify:
+    description: Main command for Sortify!
     usage: /<command>
-    aliases: [ disp ]
-    permission: dispensables.admin
+    aliases: [ sort ]
+    permission: sortify.admin
   dispenser:
     description: Command to control dispensers.
     usage: /<command>
-    aliases: [ dispense ]
-    permission: dispensables.dispensers
+    aliases: [ disp ]
+    permission: sortify.dispensers
   dropper:
     description: Command to control droppers.
     usage: /<command>
     aliases: [ drop ]
-    permission: dispensables.droppers
+    permission: sortify.droppers
   hopper:
     description: Command to control droppers.
     usage: /<command>
     aliases: [ hop ]
-    permission: dispensables.hoppers
+    permission: sortify.hoppers

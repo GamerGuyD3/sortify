@@ -1,5 +1,5 @@
 file-version: 5
-# Dispensables by TrueProtocol
+# Sortify by TrueProtocol
 # Support Discord: https://discord.com/invite/HeknxrbXHn
 
 # Dispensers Section
@@ -17,15 +17,15 @@ dispensers:
   # NOTE: You can remove any value in each entry. If the attribute is not listed, the plugin will not check for it.
   # Valid Attributes: material, display-name, lore, enchantments, amount
   items:
-    '1': # You can name this whatever you want
+    '1':
       material: WOODEN_SWORD
       display-name: Wooden Sword
       lore:
         - Line 1
         - Line 2
       enchantments:
-        SHARPNESS: 1
-        UNBREAKING: 3
+        sharpness: 1
+        unbreaking: 3
       amount: 1
     '2':
       material: TNT
@@ -45,13 +45,13 @@ droppers:
   # NOTE: You can remove any value in each entry. If the attribute is not listed, the plugin will not check for it.
   # Valid Attributes: material, display-name, lore, enchantments, amount
   items:
-    '1': # You can name this whatever you want
+    '1':
       material: WOODEN_SWORD
       display-name: Wooden Sword
       lore:
         - A basic wooden sword.
       enchantments:
-        SHARPNESS: 1
+        sharpness: 1
       amount: 1
     '2':
       material: DIAMOND
@@ -72,13 +72,13 @@ hoppers:
   # NOTE: You can remove any value in each entry. If the attribute is not listed, the plugin will not check for it.
   # Valid Attributes: material, display-name, lore, enchantments, amount
   items:
-    '1': # You can name this whatever you want
+    '1':
       material: WOODEN_SWORD
       display-name: Wooden Sword
       lore:
         - A basic wooden sword.
       enchantments:
-        SHARPNESS: 1
+        sharpness: 1
       amount: 1
     '2':
       material: DIAMOND

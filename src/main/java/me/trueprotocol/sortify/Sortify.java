@@ -1,4 +1,4 @@
-package me.trueprotocol.dispensables;
+package me.trueprotocol.sortify;
 
 import dev.dejvokep.boostedyaml.YamlDocument;
 import dev.dejvokep.boostedyaml.dvs.versioning.BasicVersioning;
@@ -6,19 +6,19 @@ import dev.dejvokep.boostedyaml.settings.dumper.DumperSettings;
 import dev.dejvokep.boostedyaml.settings.general.GeneralSettings;
 import dev.dejvokep.boostedyaml.settings.loader.LoaderSettings;
 import dev.dejvokep.boostedyaml.settings.updater.UpdaterSettings;
-import me.trueprotocol.dispensables.commands.*;
-import me.trueprotocol.dispensables.gui.ClickInventory;
-import me.trueprotocol.dispensables.gui.CloseInventory;
-import me.trueprotocol.dispensables.listeners.CancelDispense;
-import me.trueprotocol.dispensables.listeners.CancelHop;
-import me.trueprotocol.dispensables.listeners.PlayerJoin;
+import me.trueprotocol.sortify.commands.*;
+import me.trueprotocol.sortify.gui.ClickInventory;
+import me.trueprotocol.sortify.gui.CloseInventory;
+import me.trueprotocol.sortify.listeners.CancelDispense;
+import me.trueprotocol.sortify.listeners.CancelHop;
+import me.trueprotocol.sortify.listeners.PlayerJoin;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
 
-public final class Dispensables extends JavaPlugin {
+public final class Sortify extends JavaPlugin {
     private YamlDocument config;
 
     @Override
@@ -43,14 +43,14 @@ public final class Dispensables extends JavaPlugin {
             ex.printStackTrace();
         }
         // Main
-        this.getServer().getConsoleSender().sendMessage("[Dispensables] Enabled Dispensables v" + this.getDescription().getVersion());
+        this.getServer().getConsoleSender().sendMessage("[Sortify] Enabled Sortify v" + this.getDescription().getVersion());
         this.getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelDispense(this), this);
         this.getServer().getPluginManager().registerEvents(new CancelHop(this), this);
         this.getServer().getPluginManager().registerEvents(new ClickInventory(this), this);
         this.getServer().getPluginManager().registerEvents(new CloseInventory(this), this);
-        this.getServer().getPluginCommand("dispensables").setExecutor(new DispensablesCommand(this));
-        this.getServer().getPluginCommand("dispensables").setTabCompleter(new DispensablesCommand(this));
+        this.getServer().getPluginCommand("sortify").setExecutor(new SortifyCommand(this));
+        this.getServer().getPluginCommand("sortify").setTabCompleter(new SortifyCommand(this));
         this.getServer().getPluginCommand("dispenser").setExecutor(new DispenserCommand(this));
         this.getServer().getPluginCommand("dispenser").setTabCompleter(new DispenserCommand(this));
         this.getServer().getPluginCommand("dropper").setExecutor(new DropperCommand(this));
