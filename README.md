@@ -1,4 +1,4 @@
-# Dispensables
-Spigot plugin that gives you better control over your dispensers!
+# Sortify
+Spigot plugin that lets you filter items that go through redstone compenents!
 
-For more info, go to https://www.spigotmc.org/resources/dispensables-control-what-comes-out-of-your-dispensers.61856/
+For more info, go to https://www.spigotmc.org/resources/dispensables-filter-for-dispensers-droppers-and-hoppers.61856/
