@@ -37,7 +37,7 @@ public class CompareItem {
 
             Material itemType = item.getType();
             ItemMeta itemMeta = item.getItemMeta();
-            boolean matchCheck;
+            boolean matchCheck = true;
             assert itemMeta != null;
             int i = 0;
             boolean cancelEvent = false;
@@ -93,11 +93,9 @@ public class CompareItem {
                         cancelEvent = false;
                         // Set amount to dispense
                         int amount = itemConfig.getInt("amount");
-                        if (itemConfig.contains("amount")) {
-                            item.setAmount(amount);
-                        } else {
-                            item.setAmount(amountDefault);
-                        }
+                        if (itemConfig.contains("amount")) item.setAmount(amount);
+                        else item.setAmount(amountDefault);
+                        break;
                         // Whitelist and item don't match
                     } else {
                         cancelEvent = true;

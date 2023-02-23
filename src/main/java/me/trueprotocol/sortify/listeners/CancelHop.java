@@ -6,6 +6,7 @@ import me.trueprotocol.sortify.customclasses.RemoveItem;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
+import org.bukkit.event.inventory.InventoryPickupItemEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -19,7 +20,7 @@ public class CancelHop implements Listener {
     }
 
     @EventHandler
-    public void onInventoryMoveItem(InventoryMoveItemEvent e) {
+    public void onHopperMoveItem(InventoryMoveItemEvent e) {
 
         if (!(e.getSource().getType().equals(InventoryType.HOPPER) || e.getDestination().getType().equals(InventoryType.HOPPER))) return;
         // Check if enabled in config
@@ -43,7 +44,7 @@ public class CancelHop implements Listener {
         // Remove item from Hopper
         Inventory hopperInv = e.getSource();
         // Runs when items in hopper is less than amount trying to be hopped
-        if (!hopperInv.containsAtLeast(item, item.getAmount() - 1)) {
+        if (hopperInv.getType().equals(InventoryType.HOPPER) && !hopperInv.containsAtLeast(item, item.getAmount() - 1)) {
             int amountLeft = 1;
             for (ItemStack slot : hopperInv.getContents()) {
                 if (slot != null && slot.isSimilar(item)) amountLeft += slot.getAmount();
@@ -53,5 +54,23 @@ public class CancelHop implements Listener {
             // Normal item removal
         } else new RemoveItem.removeFromHopper(hopperInv, itemToRemove).runTaskLater(plugin, 1);
         e.setItem(item);
+    }
+
+    @EventHandler
+    public void onHopperPickupItem(InventoryPickupItemEvent e) {
+        if (!e.getInventory().getType().equals(InventoryType.HOPPER)) return;
+        // Check if enabled in config
+        if (!plugin.getConfig().getBoolean("hoppers.enabled")) return;
+
+        String blockTypeString = "hoppers";
+        ItemStack item = e.getItem().getItemStack();
+        int amount = item.getAmount();
+        // Filters item based on 'items' in config.yml
+        CompareItem.ItemFilter result = CompareItem.ItemFilter.compareItem(plugin, item, blockTypeString);
+        // Get results from filter
+        boolean cancelEvent = result.isEventCancelled();
+        // Set values from filter
+        e.getItem().getItemStack().setAmount(amount);
+        e.setCancelled(cancelEvent);
     }
 }
