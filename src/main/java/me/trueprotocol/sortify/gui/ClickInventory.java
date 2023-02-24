@@ -1,6 +1,7 @@
 package me.trueprotocol.sortify.gui;
 
 import me.trueprotocol.sortify.Sortify;
+import me.trueprotocol.sortify.commands.SortifyCommand;
 import me.trueprotocol.sortify.customclasses.MenuCreator;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -32,22 +33,22 @@ public class ClickInventory implements Listener {
             e.setCancelled(true);
             if (e.getCurrentItem() == null) return;
             // Dispensers Menu
-            if (e.getCurrentItem().getType().equals(Material.DISPENSER) && Objects.requireNonNull(e.getCurrentItem().getItemMeta()).getDisplayName().equals(ChatColor.YELLOW + "Dispensers")) {
+            if (e.getCurrentItem().getType().equals(Material.DISPENSER)) {
                 new MenuCreator.mainMenu(plugin).openItemConfigEditor(player, "dispenser");
                 return;
             }
             // Droppers Menu
-            if (e.getCurrentItem().getType().equals(Material.DROPPER) && Objects.requireNonNull(e.getCurrentItem().getItemMeta()).getDisplayName().equals(ChatColor.YELLOW + "Droppers")) {
+            if (e.getCurrentItem().getType().equals(Material.DROPPER)) {
                 new MenuCreator.mainMenu(plugin).openItemConfigEditor(player, "dropper");
                 return;
             }
             // Hoppers Menu
-            if (e.getCurrentItem().getType().equals(Material.HOPPER) && Objects.requireNonNull(e.getCurrentItem().getItemMeta()).getDisplayName().equals(ChatColor.YELLOW + "Hoppers")) {
+            if (e.getCurrentItem().getType().equals(Material.HOPPER)) {
                 new MenuCreator.mainMenu(plugin).openItemConfigEditor(player, "hopper");
                 return;
             }
             // Enable Buttons
-            if (e.getCurrentItem().getType().equals(Material.LIME_DYE) && Objects.requireNonNull(e.getCurrentItem().getItemMeta()).getDisplayName().equals(ChatColor.GREEN + "Enabled")) {
+            if (e.getCurrentItem().getType().equals(Material.LIME_DYE)) {
                 int slot = e.getSlot();
                 switch (slot) {
                     case 11:
@@ -70,7 +71,7 @@ public class ClickInventory implements Listener {
                 return;
             }
             // Disable Buttons
-            if (e.getCurrentItem().getType().equals(Material.GRAY_DYE) && Objects.requireNonNull(e.getCurrentItem().getItemMeta()).getDisplayName().equals(ChatColor.RED + "Disabled")) {
+            if (e.getCurrentItem().getType().equals(Material.GRAY_DYE)) {
                 int slot = e.getSlot();
                 switch (slot) {
                     case 11:
@@ -94,7 +95,7 @@ public class ClickInventory implements Listener {
                 return;
             }
             // Whitelist Buttons
-            if (e.getCurrentItem().getType().equals(Material.WHITE_BANNER) && Objects.requireNonNull(e.getCurrentItem().getItemMeta()).getDisplayName().equals(ChatColor.WHITE + "Whitelist Mode")) {
+            if (e.getCurrentItem().getType().equals(Material.WHITE_BANNER)) {
                 int slot = e.getSlot();
                 switch (slot) {
                     case 20:
@@ -117,7 +118,7 @@ public class ClickInventory implements Listener {
                 return;
             }
             // Blacklist Buttons
-            if (e.getCurrentItem().getType().equals(Material.BLACK_BANNER) && Objects.requireNonNull(e.getCurrentItem().getItemMeta()).getDisplayName().equals(ChatColor.WHITE + "Blacklist Mode")) {
+            if (e.getCurrentItem().getType().equals(Material.BLACK_BANNER)) {
                 int slot = e.getSlot();
                 switch (slot) {
                     case 20:
@@ -140,7 +141,7 @@ public class ClickInventory implements Listener {
                 return;
             }
             // Amount Buttons
-            if (e.getCurrentItem().getType().equals(Material.SLIME_BALL) && Objects.requireNonNull(e.getCurrentItem().getItemMeta()).getDisplayName().contains(ChatColor.YELLOW + "Default Amount:")) {
+            if (e.getCurrentItem().getType().equals(Material.SLIME_BALL)) {
                 int slot = e.getSlot();
                 int addAmount = 0;
                 if (e.getClick().isLeftClick()) {
@@ -172,6 +173,11 @@ public class ClickInventory implements Listener {
                 amountMeta.setLore(lore);
                 amount.setItemMeta(amountMeta);
                 Objects.requireNonNull(e.getClickedInventory()).setItem(slot, amount);
+                return;
+            }
+            // Reload Config Button
+            if (e.getCurrentItem().getType().equals(Material.STRING)) {
+                new SortifyCommand(plugin).reloadPluginConfig(player);
             }
         }
     }

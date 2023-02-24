@@ -28,6 +28,7 @@ public class MenuCreator {
             addDispenserMenuItem(mainMenu);
             addDropperMenuItem(mainMenu);
             addHopperMenuItem(mainMenu);
+            addReloadConfigItem(mainMenu);
             player.openInventory(mainMenu);
         }
 
@@ -112,6 +113,15 @@ public class MenuCreator {
             amountMeta.setLore(lore);
             amount.setItemMeta(amountMeta);
             inventory.setItem(index + 27, amount);
+        }
+
+        private void addReloadConfigItem(Inventory inventory) {
+            ItemStack reload = new ItemStack(Material.STRING);
+            ItemMeta reloadMeta = reload.getItemMeta();
+            reloadMeta.setDisplayName(ChatColor.WHITE + "Reload Config");
+            reloadMeta.setLore(Collections.singletonList(ChatColor.GRAY + "Click to reload config.yml"));
+            reload.setItemMeta(reloadMeta);
+            inventory.setItem(35, reload);
         }
 
         public void openItemConfigEditor(Player player, String blockTypeString) {

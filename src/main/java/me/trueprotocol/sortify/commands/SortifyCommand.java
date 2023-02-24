@@ -23,9 +23,10 @@ public class SortifyCommand implements CommandExecutor, TabCompleter {
         if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
             sendHelpMessage(sender);
         } else {
+            Player player = (Player) sender;
             switch (args[0].toLowerCase()) {
                 case "reload":
-                    reloadPluginConfig(sender);
+                    reloadPluginConfig(player);
                     break;
                 case "gui":
                 case "editor":
@@ -33,7 +34,6 @@ public class SortifyCommand implements CommandExecutor, TabCompleter {
                         sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.GREEN + "Sortify" + ChatColor.DARK_GRAY + "] " + ChatColor.RED + "You must be a player to use this command!");
                         break;
                     }
-                    Player player = (Player) sender;
                     new MenuCreator.mainMenu(plugin).openSortifyEditor(player);
                     break;
                 default:
@@ -54,9 +54,9 @@ public class SortifyCommand implements CommandExecutor, TabCompleter {
         sender.sendMessage(ChatColor.YELLOW + "/hopper");
     }
 
-    private void reloadPluginConfig(CommandSender sender) {
+    public void reloadPluginConfig(Player player) {
         plugin.reloadConfig();
-        sender.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.GREEN + "Sortify" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Reload complete!");
+        player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.GREEN + "Sortify" + ChatColor.DARK_GRAY + "] " + ChatColor.WHITE + "Reload complete!");
     }
 
     @Override
